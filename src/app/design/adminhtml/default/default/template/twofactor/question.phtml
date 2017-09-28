@@ -38,6 +38,20 @@
     <link rel="icon" href="<?php echo $this->getSkinUrl('favicon.ico'); ?>" type="image/x-icon" />
     <link rel="shortcut icon" href="<?php echo $this->getSkinUrl('favicon.ico'); ?>" type="image/x-icon" />
 
+    <style type="text/css">
+        .vnecoms-cp a.btn {background-color: #ffaa33;background-image: none;border: medium none;color: #FFFFFF;cursor: pointer;display: inline-block;font-size: 14px;line-height: 20px;margin-bottom: 3px;padding: 6px 12px;text-align: center;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);vertical-align: middle;}
+        .vnecoms-cp a.btn:hover {background-color: #f69101;color: #FFFFFF;text-decoration: none; background-image: none;}
+
+        .vnecoms-cp .btn.back {background-color: #363636;color: #FFFFFF;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);}
+        .vnecoms-cp .btn.back:hover{background-color: #222222;color: #FFFFFF;}
+        .vnecoms-cp .btn.back span{background-image: url('../images/back.png');}
+
+        #page-login.vnecoms-cp{background-color: #<?php echo Mage::getStoreConfig('vadmin/login/body_color');?>;<?php if($bodyBgImage = Mage::getStoreConfig('vadmin/login/body_image')):?>background-image: url(<?php echo Mage::getBaseUrl('media').'ves_vadmin/'.$bodyBgImage;?>);<?php endif;?>}
+        .vnecoms-cp .login-form h2{background-color: #<?php echo Mage::getStoreConfig('vadmin/login/title_bg_color');?>;}
+        .vnecoms-cp .login-form .form-button, .vnecoms-cp .login-form .form-buttons .forgot-password{background-color: #<?php echo Mage::getStoreConfig('vadmin/login/button_color');?>;}
+        .vnecoms-cp .login-form .form-button:hover,.vnecoms-cp .login-form .form-buttons .forgot-password:hover{background: #<?php echo Mage::getStoreConfig('vadmin/login/button_color_hover');?>;}
+    </style>
+
     <script type="text/javascript" src="<?php echo $this->getJsUrl('prototype/prototype.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo $this->getJsUrl('prototype/validation.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo $this->getJsUrl('mage/adminhtml/events.js'); ?>"></script>
@@ -48,34 +62,35 @@
     <!--[if lt IE 7]> <link rel="stylesheet" href="<?php echo $this->getSkinUrl('below_ie7.css'); ?>" type="text/css" media="all" /> <![endif]-->
     <!--[if IE 7]> <link rel="stylesheet" href="<?php echo $this->getSkinUrl('ie7.css'); ?>" type="text/css" media="all" /> <![endif]-->
 </head>
+<?php $logoUrl = Mage::getStoreConfig('vadmin/header/logo')?Mage::getBaseUrl('media').'ves_vadmin/'.Mage::getStoreConfig('vadmin/header/logo'):$this->getSkinUrl('images/logo.gif')?>
 <body id="page-login" class="vnecoms-cp">
 <div class="login-container">
     <div class="login-box">
+        <img src="<?php echo $logoUrl?>" alt="<?php echo $this->__('Admin Logo') ?>" class="logo"/>
         <form method="post" action="<?php echo $this->getUrl('adminhtml/twofactorauth/answer') ?>" id="loginForm">
-            <fieldset class="login-form">
+            <div class="login-form">
                 <input name="form_key" type="hidden" value="<?php echo $this->getFormKey(); ?>" />
                 <input name="question_id" type="hidden" value="<?php echo $this->getSecretQuestion()->getId() ?>" />
                 <div id="messages">
                     <?php echo $this->getMessagesBlock()->getGroupedHtml(); ?>
                 </div>
                 <h2><?php echo Mage::helper('twofactorauth')->__('Please enter your answer'); ?></h2>
-                <div>
+                <div class="input-box">
                     <p><label><?php echo Mage::helper('twofactorauth')->__('Question:') ?></label></p>
                     <p><?php echo $this->getSecretQuestion()->getQuestion() ?></p><br/>
                 </div>
-                <div class="input-box forgot-password"><label for="answer"><?php echo Mage::helper('twofactorauth')->__('Answer:'); ?></label><br />
-                    <input type="password" id="answer" name="answer" value="" class="required-entry input-text tfa__input-text" style="width:461px;" />
+                <div class="input-box forgot-password">
+                    <input type="password" id="answer" name="answer" value="" class="required-entry input-text" placeholder="<?php echo Mage::helper('twofactorauth')->__('Answer:'); ?>" />
+                    <i class="fa fa-lock"></i>
                 </div>
                 <?php echo $this->getChildHtml('form.additional.info'); ?>
                 <div class="clear"></div>
                 <div class="form-buttons">
-                    <a class="left" href="<?php echo $this->getUrl('adminhtml', array('_nosecret' => true)); ?>">&laquo; <?php echo Mage::helper('adminhtml')->__('Back to Login'); ?></a>
-                    <button class="forgot-password" onclick="loginForm.submit()" type="button"><span><span><span><?php echo Mage::helper('twofactorauth')->__('Submit Answer'); ?></span></span></span></button>
+                    <a class="left btn back" href="<?php echo $this->getUrl('adminhtml', array('_nosecret' => true)); ?>">&laquo; <?php echo Mage::helper('adminhtml')->__('Back to Login'); ?></a>
+                    <button onclick="loginForm.submit()" type="button"><span><span><span><?php echo Mage::helper('twofactorauth')->__('Submit Answer'); ?></span></span></span></button>
                 </div>
-            </fieldset>
-            <p class="legal"><?php echo Mage::helper('adminhtml')->__('Magento is a trademark of Magento Inc. Copyright &copy; %s Magento Inc.', date('Y')); ?></p>
+            </div>
         </form>
-        <div class="bottom"></div>
     </div>
 </div>
 <script type="text/javascript">

@@ -2,17 +2,16 @@
 <div class="grid">
     <table cellspacing="0" class="data border questions">
         <colgroup>
-            <col width="1"/>
-            <col width="400"/>
-            <col width="400"/>
             <col width="50"/>
-        </colgroup>
+            <col width="400"/>
+            <col width="400"/>
+<!--            <col width="50"/>-->
         <thead>
         <tr class="headings">
             <th><?php echo Mage::helper('twofactorauth')->__('#') ?></th>
             <th><?php echo Mage::helper('twofactorauth')->__('Question') ?></th>
             <th><?php echo Mage::helper('twofactorauth')->__('Answer') ?></th>
-            <th></th>
+<!--            <th></th>-->
         </tr>
         </thead>
         <tbody>
@@ -22,23 +21,27 @@
                 <?php foreach (array('question', 'answer') as $field): ?>
                     <?php $name = $this->getItemName($i, $field) ?>
                     <?php $value = $this->getItemValue($i, $field) ?>
-                    <?php $type = ($field == 'question') ? 'type' : 'password' ?>
+                    <?php $type = ($field == 'question') ? 'text' : 'password' ?>
                     <?php $class = ($i == 0) ? ' required-entry ' : '' ?>
                     <td>
                         <input type="<?php echo $type ?>"
                                name="<?php echo $name ?>"
                                value="<?php echo $value ?>"
-                               class="input-text <?php echo $class ?>"
+                               class="input-text question <?php echo $class ?>"
                                maxlength="100" />
                     </td>
                 <?php endforeach; ?>
-                <td>
-                    <button class="generate" onclick="generateOneTimeAnswer(<?php echo json_encode($i) ?>);" type="button">
-                        <span><span><span>
-                            <?php echo Mage::helper('twofactorauth')->__('Generate random question/answer'); ?>
-                        </span></span></span>
-                    </button>
-                </td>
+                <?php
+                /*
+                    <td>
+                        <button class="generate" onclick="generateOneTimeAnswer(<?php echo json_encode($i) ?>);" type="button">
+                            <span><span><span>
+                                <?php echo Mage::helper('twofactorauth')->__('Generate random question/answer'); ?>
+                            </span></span></span>
+                        </button>
+                    </td>
+                */
+                ?>
             </tr>
         <?php endfor; ?>
         </tbody>

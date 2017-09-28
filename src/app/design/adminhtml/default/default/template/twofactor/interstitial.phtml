@@ -70,7 +70,7 @@
         <form method="post" action="<?php echo $this->getUrl('adminhtml/twofactorauth/verify') ?>" id="loginForm">
             <div class="login-form">
                 <input name="form_key" type="hidden" value="<?php echo $this->getFormKey(); ?>" />
-                <h2><?php echo Mage::helper('twofactorauth')->__('Please enter Google Authenticator verification code'); ?></h2>
+                <h2><?php echo Mage::helper('twofactorauth')->__('Please enter Authenticator code'); ?></h2>
                 <div class="account-name input-box">
                     <?php echo $this->__('Account Name: %s', Mage::helper('twofactorauth/auth')->getStoreName()) ?>
                 </div>

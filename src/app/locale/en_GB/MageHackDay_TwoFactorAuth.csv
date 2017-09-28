@@ -31,7 +31,7 @@
 "The subscription has been removed.","The subscription has been removed."
 "An error occurred while saving your settings.","An error occurred while saving your settings."
 "The secret code you entered was invalid. Please try again.","The secret code you entered was invalid. Please try again."
-"abort","abort"
+"abort","Abort"
 "Enable Two Factor Authentication","Enable Two Factor Authentication"
 "Force Two Factor Authentication for all backend users","Force Two Factor Authentication for all backend users"
 "Require Two Factor Authentication for all backend users regardless of their permissions.","Require Two Factor Authentication for all backend users regardless of their permissions."
@@ -83,3 +83,4 @@
 "Token resetted", "Token reset"
 "Error while saving Customer: %s","Error while saving Customer: %s"
 "Reset customer authentication","Reset customer authentication"
+"Please enter Authenticator code","Please enter Authenticator code"

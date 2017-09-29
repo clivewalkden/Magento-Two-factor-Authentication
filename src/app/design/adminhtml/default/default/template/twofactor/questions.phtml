@@ -55,21 +55,3 @@
         </small>
     </p>
 </div>
-<script type="text/javascript">
-    var loginForm = new varienForm('qrForm');
-
-    function generateOneTimeAnswer(iterator) {
-        var code = '';
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!$*-.=?@_";
-        for (var i = 0; i < 10; i++) {
-            code += possible.charAt(Math.floor(Math.random() * possible.length));
-        }
-        var question = $$('[name="questions['+iterator+'][question]"]')[0];
-        var answer = $$('[name="questions['+iterator+'][answer]"]')[0];
-        if (question && answer) {
-            question.value = 'Secret Code #'+(iterator+1);
-            answer.type = 'text';
-            answer.value = code;
-        }
-    }
-</script>

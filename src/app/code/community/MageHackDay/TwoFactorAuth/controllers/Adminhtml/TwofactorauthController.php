@@ -223,6 +223,7 @@ class MageHackDay_TwoFactorAuth_Adminhtml_TwofactorauthController extends Mage_A
         if ( ! $this->_getUser()->getTwofactorToken()) {
             $secret = (string) $this->getRequest()->getPost('qr_secret');
             $securityCode = (string) $this->getRequest()->getPost('security_code');
+
             if ( ! $secret || ! $securityCode) {
                 $this->_redirect('*/*/qr');
                 return;
@@ -254,6 +255,7 @@ class MageHackDay_TwoFactorAuth_Adminhtml_TwofactorauthController extends Mage_A
 
             } else {
                 $this->_getSession()->addError($this->__('Invalid security code.'));
+
                 $this->_redirect('*/*/qr');
                 return;
             }

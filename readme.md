@@ -40,6 +40,9 @@ This project was initiated at the Magento Worldwide Online Hackathon, Januar 201
 
 MIT License (MIT)
 
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fclivewalkden%2FMagento-Two-factor-Authentication.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fclivewalkden%2FMagento-Two-factor-Authentication?ref=badge_large)
+
 ### Fancy Images
 
 #### Admin-Usage
@@ -47,6 +50,7 @@ MIT License (MIT)
 ##### Step 1 - Login in Admin-Panel
 
 ![Login in Admin](https://github.com/magento-hackathon/Magento-Two-factor-Authentication/blob/readme-images/readme-images/Admin-Step1-Login.png?raw=true)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fclivewalkden%2FMagento-Two-factor-Authentication.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fclivewalkden%2FMagento-Two-factor-Authentication?ref=badge_shield)
 
 ##### Step 2 - Link Admin with Google Authenticator - just scan the Barcode
 
